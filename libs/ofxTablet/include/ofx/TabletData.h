@@ -26,6 +26,59 @@
 
 #pragma once
 
+// for meanings of fields see here: http://www.wacomeng.com/mac/Developers%20Guide.htm
 
-#include "ofxPointer.h"
-#include "ofx/Tablet.h"
+namespace ofx {
+
+
+struct TabletData
+{
+public:
+    enum PointerType
+    {
+        PTypeUnknown = 0,       // should never happen
+        PTypePen,               // tip end of a stylus like device
+        PTypeCursor,            // any puck like device
+        PTypeEraser             // eraser end of a stylus like device
+    };
+
+
+    enum EventType
+    {
+        DOWN = 0,
+        UP,
+        MOVE
+    };
+
+    EventType eventType;
+
+    int evt;
+
+    // from driver
+    float absX;
+    float absY;
+    float absZ;
+
+    float tiltX; // 2d projection of normalized 3d vector on to ground plane, from driver
+    float tiltY;
+
+    float pressure;
+    float rotation;
+    float tangentialPressure;
+
+    // from proximity events
+    bool isProximityEvent;
+    int button;
+    int clickCount;
+    int pointerID; // index of the device on this tablet
+    int deviceID;  // used to match pointer events with proximity events
+
+    int vendorID;
+
+    unsigned int vendorPointerType;
+
+};
+
+
+
+}; // namespace ofx

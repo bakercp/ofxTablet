@@ -27,5 +27,29 @@
 #pragma once
 
 
-#include "ofxPointer.h"
-#include "ofx/Tablet.h"
+#include <map>
+#include "Poco/SingletonHolder.h"
+#include "ofx/TabletData.h"
+
+
+namespace ofx {
+
+
+class Tablet
+{
+public:
+    static Tablet& getTabletRef();
+    static void callback(const TabletData& data);
+private:
+    // singleton
+    Tablet();
+    virtual ~Tablet();
+    Tablet(const Tablet&);
+    Tablet& operator=(const Tablet&);
+
+    friend class Poco::SingletonHolder<Tablet>;
+
+};
+
+
+} // namespace ofx

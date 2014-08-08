@@ -27,5 +27,9 @@
 #pragma once
 
 
-#include "ofxPointer.h"
-#include "ofx/Tablet.h"
+#ifdef __APPLE__
+
+bool connectImpl(int deviceId);
+bool disconnectImpl(int deviceId);
+
+#endif
