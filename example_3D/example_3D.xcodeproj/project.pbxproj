@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E1F753873A7EF0AD4EDFF9F /* PointerEventArgs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA607D2FAE5F44E1770E703E /* PointerEventArgs.cpp */; };
+		8F29191C96464A5DEF57CCAF /* PointShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81D52F7164ABC2BD5F753100 /* PointShape.cpp */; };
+		9012AAF6FBECC1CAA76106A1 /* Point.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFE0B6C798592B66271BE771 /* Point.cpp */; };
+		B5EFC2399405CFCBF72CA33A /* Tablet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 347EC302ED03DC88BAFAC7C3 /* Tablet.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
-		C9DD5F3C198C7DAF00216FD9 /* ofxTablet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C9DD5F37198C7DAF00216FD9 /* ofxTablet.cpp */; };
-		C9DD5F3D198C7DAF00216FD9 /* tabletCocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = C9DD5F3A198C7DAF00216FD9 /* tabletCocoa.mm */; };
+		D0402F084189F48C6ED17091 /* PointerEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8364A465E6BAC9C172C4C106 /* PointerEvents.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
@@ -28,6 +31,7 @@
 		E7E077E515D3B63C0020DFD4 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */; };
 		E7E077E815D3B6510020DFD4 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E715D3B6510020DFD4 /* QTKit.framework */; };
 		E7F985F815E0DEA3003869B5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F985F515E0DE99003869B5 /* Accelerate.framework */; };
+		FD5723F619957BA400D6B0FA /* Tablet_Cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = FD5723F519957BA400D6B0FA /* Tablet_Cocoa.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,12 +65,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		052F533DEEA381BED3F5B979 /* ofxPointer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxPointer.h; path = ../../../addons/ofxPointer/src/ofxPointer.h; sourceTree = SOURCE_ROOT; };
+		090A267B71A213FF1F440ACE /* Point.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Point.h; path = ../../../addons/ofxPointer/libs/ofxPointer/includes/ofx/Point.h; sourceTree = SOURCE_ROOT; };
+		1C8DBD46256A5B86A0F0C780 /* ofxTablet.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTablet.h; path = ../../../addons/ofxTablet/src/ofxTablet.h; sourceTree = SOURCE_ROOT; };
+		347EC302ED03DC88BAFAC7C3 /* Tablet.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Tablet.cpp; path = ../../../addons/ofxTablet/libs/ofxTablet/src/Tablet.cpp; sourceTree = SOURCE_ROOT; };
+		80E73E1B8357B4ECEA56AB7E /* TabletData.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TabletData.h; path = ../../../addons/ofxTablet/libs/ofxTablet/include/ofx/TabletData.h; sourceTree = SOURCE_ROOT; };
+		81D52F7164ABC2BD5F753100 /* PointShape.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = PointShape.cpp; path = ../../../addons/ofxPointer/libs/ofxPointer/src/PointShape.cpp; sourceTree = SOURCE_ROOT; };
+		8364A465E6BAC9C172C4C106 /* PointerEvents.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = PointerEvents.cpp; path = ../../../addons/ofxPointer/libs/ofxPointer/src/PointerEvents.cpp; sourceTree = SOURCE_ROOT; };
+		85A25F4E29F09C8072C174F8 /* PointerEventArgs.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PointerEventArgs.h; path = ../../../addons/ofxPointer/libs/ofxPointer/includes/ofx/PointerEventArgs.h; sourceTree = SOURCE_ROOT; };
+		B3656F2BC31FD61EDD712F81 /* Tablet_Cocoa.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Tablet_Cocoa.h; path = ../../../addons/ofxTablet/libs/ofxTablet/include/ofx/Tablet_Cocoa.h; sourceTree = SOURCE_ROOT; };
+		B5B9DF4B48B8A063C3E7FF46 /* PointShape.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PointShape.h; path = ../../../addons/ofxPointer/libs/ofxPointer/includes/ofx/PointShape.h; sourceTree = SOURCE_ROOT; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
-		C9DD5F37198C7DAF00216FD9 /* ofxTablet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTablet.cpp; sourceTree = "<group>"; };
-		C9DD5F38198C7DAF00216FD9 /* ofxTablet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTablet.h; sourceTree = "<group>"; };
-		C9DD5F39198C7DAF00216FD9 /* tabletCocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tabletCocoa.h; sourceTree = "<group>"; };
-		C9DD5F3A198C7DAF00216FD9 /* tabletCocoa.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = tabletCocoa.mm; sourceTree = "<group>"; };
-		C9DD5F3B198C7DAF00216FD9 /* tabletData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tabletData.h; sourceTree = "<group>"; };
+		BFE0B6C798592B66271BE771 /* Point.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Point.cpp; path = ../../../addons/ofxPointer/libs/ofxPointer/src/Point.cpp; sourceTree = SOURCE_ROOT; };
+		BFFF5A82D016E3093FD328B2 /* Tablet.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Tablet.h; path = ../../../addons/ofxTablet/libs/ofxTablet/include/ofx/Tablet.h; sourceTree = SOURCE_ROOT; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -76,7 +87,7 @@
 		E45BE9770E8CC7DD009D7055 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
 		E45BE9790E8CC7DD009D7055 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
 		E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
-		E4B69B5B0A3A1756003C02F2 /* emptyExampleDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = emptyExampleDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4B69B5B0A3A1756003C02F2 /* example_3DDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = example_3DDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
@@ -89,6 +100,9 @@
 		E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		E7E077E715D3B6510020DFD4 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		E7F985F515E0DE99003869B5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = /System/Library/Frameworks/Accelerate.framework; sourceTree = "<absolute>"; };
+		E87D9AA5DB31069EC302D135 /* PointerEvents.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PointerEvents.h; path = ../../../addons/ofxPointer/libs/ofxPointer/includes/ofx/PointerEvents.h; sourceTree = SOURCE_ROOT; };
+		FA607D2FAE5F44E1770E703E /* PointerEventArgs.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = PointerEventArgs.cpp; path = ../../../addons/ofxPointer/libs/ofxPointer/src/PointerEventArgs.cpp; sourceTree = SOURCE_ROOT; };
+		FD5723F519957BA400D6B0FA /* Tablet_Cocoa.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Tablet_Cocoa.mm; path = ../libs/ofxTablet/src/Tablet_Cocoa.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,10 +132,110 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0320D6AF09CE857EE4093D00 /* includes */ = {
+			isa = PBXGroup;
+			children = (
+				A90A74445A7D9202BDAD9CC7 /* ofx */,
+			);
+			name = includes;
+			sourceTree = "<group>";
+		};
+		193CA4A0AE995DF627343AC8 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				052F533DEEA381BED3F5B979 /* ofxPointer.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		1FFA5BF7642002ABC599A597 /* ofxPointer */ = {
+			isa = PBXGroup;
+			children = (
+				0320D6AF09CE857EE4093D00 /* includes */,
+				558879234BB2324E57304F98 /* src */,
+			);
+			name = ofxPointer;
+			sourceTree = "<group>";
+		};
+		4ADAB81114C3760A85ED9941 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				1FFA5BF7642002ABC599A597 /* ofxPointer */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		558879234BB2324E57304F98 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				BFE0B6C798592B66271BE771 /* Point.cpp */,
+				FA607D2FAE5F44E1770E703E /* PointerEventArgs.cpp */,
+				8364A465E6BAC9C172C4C106 /* PointerEvents.cpp */,
+				81D52F7164ABC2BD5F753100 /* PointShape.cpp */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		644A00391499662B751A4463 /* ofx */ = {
+			isa = PBXGroup;
+			children = (
+				BFFF5A82D016E3093FD328B2 /* Tablet.h */,
+				B3656F2BC31FD61EDD712F81 /* Tablet_Cocoa.h */,
+				80E73E1B8357B4ECEA56AB7E /* TabletData.h */,
+			);
+			name = ofx;
+			sourceTree = "<group>";
+		};
+		720B9A566E1CEE9E956C007D /* ofxTablet */ = {
+			isa = PBXGroup;
+			children = (
+				C682451E56B1DDA717C9F928 /* include */,
+				B3867EAEE87C704F9CBE0AE2 /* src */,
+			);
+			name = ofxTablet;
+			sourceTree = "<group>";
+		};
+		88F1833860A1CE3288861DF1 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				1C8DBD46256A5B86A0F0C780 /* ofxTablet.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		8A4F32573B6D64D8B13E5B97 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				720B9A566E1CEE9E956C007D /* ofxTablet */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		A90A74445A7D9202BDAD9CC7 /* ofx */ = {
+			isa = PBXGroup;
+			children = (
+				090A267B71A213FF1F440ACE /* Point.h */,
+				85A25F4E29F09C8072C174F8 /* PointerEventArgs.h */,
+				E87D9AA5DB31069EC302D135 /* PointerEvents.h */,
+				B5B9DF4B48B8A063C3E7FF46 /* PointShape.h */,
+			);
+			name = ofx;
+			sourceTree = "<group>";
+		};
+		B3867EAEE87C704F9CBE0AE2 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				347EC302ED03DC88BAFAC7C3 /* Tablet.cpp */,
+				FD5723F519957BA400D6B0FA /* Tablet_Cocoa.mm */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
-				C9DD5F35198C7D9E00216FD9 /* ofxTablet */,
+				CCC21C030DDB54EA180B4E01 /* ofxPointer */,
+				E665C36C50EDBD7C9F8CE1A2 /* ofxTablet */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -155,25 +269,21 @@
 			name = "3rd party frameworks";
 			sourceTree = "<group>";
 		};
-		C9DD5F35198C7D9E00216FD9 /* ofxTablet */ = {
+		C682451E56B1DDA717C9F928 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				C9DD5F36198C7DAF00216FD9 /* src */,
+				644A00391499662B751A4463 /* ofx */,
 			);
-			name = ofxTablet;
+			name = include;
 			sourceTree = "<group>";
 		};
-		C9DD5F36198C7DAF00216FD9 /* src */ = {
+		CCC21C030DDB54EA180B4E01 /* ofxPointer */ = {
 			isa = PBXGroup;
 			children = (
-				C9DD5F37198C7DAF00216FD9 /* ofxTablet.cpp */,
-				C9DD5F38198C7DAF00216FD9 /* ofxTablet.h */,
-				C9DD5F39198C7DAF00216FD9 /* tabletCocoa.h */,
-				C9DD5F3A198C7DAF00216FD9 /* tabletCocoa.mm */,
-				C9DD5F3B198C7DAF00216FD9 /* tabletData.h */,
+				193CA4A0AE995DF627343AC8 /* src */,
+				4ADAB81114C3760A85ED9941 /* libs */,
 			);
-			name = src;
-			path = ../src;
+			name = ofxPointer;
 			sourceTree = "<group>";
 		};
 		E4328144138ABC890047C5CB /* Products */ = {
@@ -202,7 +312,7 @@
 				E4EEC9E9138DF44700A80321 /* openFrameworks */,
 				BB4B014C10F69532006C3DED /* addons */,
 				E45BE5980E8CC70C009D7055 /* frameworks */,
-				E4B69B5B0A3A1756003C02F2 /* emptyExampleDebug.app */,
+				E4B69B5B0A3A1756003C02F2 /* example_3DDebug.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -225,12 +335,21 @@
 			name = openFrameworks;
 			sourceTree = "<group>";
 		};
+		E665C36C50EDBD7C9F8CE1A2 /* ofxTablet */ = {
+			isa = PBXGroup;
+			children = (
+				88F1833860A1CE3288861DF1 /* src */,
+				8A4F32573B6D64D8B13E5B97 /* libs */,
+			);
+			name = ofxTablet;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E4B69B5A0A3A1756003C02F2 /* emptyExample */ = {
+		E4B69B5A0A3A1756003C02F2 /* example_3D */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "emptyExample" */;
+			buildConfigurationList = E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "example_3D" */;
 			buildPhases = (
 				E4B69B580A3A1756003C02F2 /* Sources */,
 				E4B69B590A3A1756003C02F2 /* Frameworks */,
@@ -242,9 +361,9 @@
 			dependencies = (
 				E4EEB9AC138B136A00A80321 /* PBXTargetDependency */,
 			);
-			name = emptyExample;
+			name = example_3D;
 			productName = myOFApp;
-			productReference = E4B69B5B0A3A1756003C02F2 /* emptyExampleDebug.app */;
+			productReference = E4B69B5B0A3A1756003C02F2 /* example_3DDebug.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -255,7 +374,7 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 			};
-			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "tabletExample" */;
+			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "example_3D" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -276,7 +395,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				E4B69B5A0A3A1756003C02F2 /* emptyExample */,
+				E4B69B5A0A3A1756003C02F2 /* example_3D */,
 			);
 		};
 /* End PBXProject section */
@@ -312,10 +431,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9DD5F3C198C7DAF00216FD9 /* ofxTablet.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
-				C9DD5F3D198C7DAF00216FD9 /* tabletCocoa.mm in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				9012AAF6FBECC1CAA76106A1 /* Point.cpp in Sources */,
+				5E1F753873A7EF0AD4EDFF9F /* PointerEventArgs.cpp in Sources */,
+				D0402F084189F48C6ED17091 /* PointerEvents.cpp in Sources */,
+				8F29191C96464A5DEF57CCAF /* PointShape.cpp in Sources */,
+				B5EFC2399405CFCBF72CA33A /* Tablet.cpp in Sources */,
+				FD5723F619957BA400D6B0FA /* Tablet_Cocoa.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +476,18 @@
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
 					src,
+					../../../addons/ofxPointer/libs,
+					../../../addons/ofxPointer/libs/ofxPointer,
+					../../../addons/ofxPointer/libs/ofxPointer/includes,
+					../../../addons/ofxPointer/libs/ofxPointer/includes/ofx,
+					../../../addons/ofxPointer/libs/ofxPointer/src,
+					../../../addons/ofxPointer/src,
+					../../../addons/ofxTablet/libs,
+					../../../addons/ofxTablet/libs/ofxTablet,
+					../../../addons/ofxTablet/libs/ofxTablet/include,
+					../../../addons/ofxTablet/libs/ofxTablet/include/ofx,
+					../../../addons/ofxTablet/libs/ofxTablet/src,
+					../../../addons/ofxTablet/src,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_CPLUSPLUSFLAGS = (
@@ -388,6 +523,18 @@
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
 					src,
+					../../../addons/ofxPointer/libs,
+					../../../addons/ofxPointer/libs/ofxPointer,
+					../../../addons/ofxPointer/libs/ofxPointer/includes,
+					../../../addons/ofxPointer/libs/ofxPointer/includes/ofx,
+					../../../addons/ofxPointer/libs/ofxPointer/src,
+					../../../addons/ofxPointer/src,
+					../../../addons/ofxTablet/libs,
+					../../../addons/ofxTablet/libs/ofxTablet,
+					../../../addons/ofxTablet/libs/ofxTablet/include,
+					../../../addons/ofxTablet/libs/ofxTablet/include/ofx,
+					../../../addons/ofxTablet/libs/ofxTablet/src,
+					../../../addons/ofxTablet/src,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_CPLUSPLUSFLAGS = (
@@ -411,7 +558,6 @@
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INPUT_FILETYPE = automatic;
 				GCC_MODEL_TUNING = NONE;
 				ICON = "$(ICON_NAME_DEBUG)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
@@ -481,11 +627,6 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_52)",
 				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-D__MACOSX_CORE__",
-					"-lpthread",
-					"-mtune=native",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				WRAPPER_EXTENSION = app;
 			};
@@ -502,7 +643,6 @@
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INPUT_FILETYPE = automatic;
 				GCC_MODEL_TUNING = NONE;
 				ICON = "$(ICON_NAME_RELEASE)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
@@ -572,11 +712,6 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_50)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
 				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-D__MACOSX_CORE__",
-					"-lpthread",
-					"-mtune=native",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -585,7 +720,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "tabletExample" */ = {
+		E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "example_3D" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E4B69B4E0A3A1720003C02F2 /* Debug */,
@@ -594,7 +729,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "emptyExample" */ = {
+		E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "example_3D" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E4B69B600A3A1757003C02F2 /* Debug */,
