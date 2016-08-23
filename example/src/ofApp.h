@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Copyright (c) 2009-2014 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2009-2016 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,6 @@
 
 
 #include "ofMain.h"
-#include "ofxPointer.h"
 #include "ofxTablet.h"
 
 
@@ -37,17 +36,11 @@ public:
     void setup();
     void update();
     void draw();
-    void exit();
 
-    // Pointer Events
-    void onPointerUp(ofx::PointerEventArgs& evt);
     void onPointerDown(ofx::PointerEventArgs& evt);
+    void onPointerUp(ofx::PointerEventArgs& evt);
     void onPointerMove(ofx::PointerEventArgs& evt);
     void onPointerCancel(ofx::PointerEventArgs& evt);
-
-    // Gesture Events
-    void onPointerDoublePress(ofx::PointerEventArgs& evt);
-    void onPointerPressAndHold(ofx::PointerEventArgs& evt);
 
     std::vector<ofx::PointerEventArgs> points;
 

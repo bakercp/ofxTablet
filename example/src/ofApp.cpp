@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Copyright (c) 2009-2014 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2009-2016 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,31 +24,14 @@
 
 
 #include "ofApp.h"
-#include "Poco/Environment.h"
+
 
 void ofApp::setup()
 {
-    ofSetLogLevel(OF_LOG_VERBOSE);
     ofx::RegisterPointerEvents(this);
-    ofx::RegisterPointerGestureEvents(this);
 
-//    ofx::Tablet::init();
+    ofx::Tablet::setup();
 
-    //  The following code attempts to prevent conflicts between system-wide
-    //  gesture support and the raw TouchPad data provided by ofxTouchPad.
-    //    ofSystem("killall -STOP Dock"); // turn off OS level gesture support ...
-    //    CGAssociateMouseAndMouseCursorPosition(false);
-    //    ofHideCursor();
-
-}
-
-
-void ofApp::exit()
-{
-    //  The following code re-enables default system-wide gesture support.
-    //    ofSystem("killall -CONT Dock"); // turn on OS level gesture support
-    //    CGAssociateMouseAndMouseCursorPosition(true);
-    //    ofShowCursor();
 }
 
 
@@ -74,9 +57,9 @@ void ofApp::draw()
 
     for (std::size_t i = 0; i < points.size(); ++i)
     {
-        mesh.addVertex(points[i].getPoint());
+        mesh.addVertex(points[i].point());
 
-        ofCircle(points[i].getPoint().x, points[i].getPoint().y, 20 * points[i].getPoint().getPressure());
+        ofDrawCircle(points[i].point().x, points[i].point().y, 20 * points[i].point().pressure());
     }
 
     mesh.draw();
@@ -84,18 +67,9 @@ void ofApp::draw()
 }
 
 
-void ofApp::onPointerUp(ofx::PointerEventArgs& evt)
-{
-    if (evt.getDeviceType() == ofx::PointerEventArgs::TYPE_PEN)
-    {
-        ofLogVerbose("ofApp::onPointerUp") << evt.toString();
-    }
-}
-
-
 void ofApp::onPointerDown(ofx::PointerEventArgs& evt)
 {
-    if (evt.getDeviceType() == ofx::PointerEventArgs::TYPE_PEN)
+    if (evt.deviceType() == ofx::PointerEventArgs::TYPE_PEN)
     {
         ofLogVerbose("ofApp::onPointerDown") << evt.toString();
         points.clear();
@@ -104,13 +78,22 @@ void ofApp::onPointerDown(ofx::PointerEventArgs& evt)
 }
 
 
+void ofApp::onPointerUp(ofx::PointerEventArgs& evt)
+{
+    if (evt.deviceType() == ofx::PointerEventArgs::TYPE_PEN)
+    {
+        ofLogVerbose("ofApp::onPointerUp") << evt.toString();
+    }
+}
+
+
 void ofApp::onPointerMove(ofx::PointerEventArgs& evt)
 {
-    if (evt.getDeviceType() == ofx::PointerEventArgs::TYPE_PEN)
+    if (evt.deviceType() == ofx::PointerEventArgs::TYPE_PEN)
     {
         ofLogVerbose("ofApp::onPointerMove") << evt.toString();
 
-        if (evt.getButtons() > 0)
+        if (evt.buttons() > 0)
         {
             points.push_back(evt);
         }
@@ -120,27 +103,8 @@ void ofApp::onPointerMove(ofx::PointerEventArgs& evt)
 
 void ofApp::onPointerCancel(ofx::PointerEventArgs& evt)
 {
-    if (evt.getDeviceType() == ofx::PointerEventArgs::TYPE_PEN)
+    if (evt.deviceType() == ofx::PointerEventArgs::TYPE_PEN)
     {
         ofLogVerbose("ofApp::onPointerCancel") << evt.toString();
     }
 }
-
-
-void ofApp::onPointerDoublePress(ofx::PointerEventArgs& evt)
-{
-    if (evt.getDeviceType() == ofx::PointerEventArgs::TYPE_PEN)
-    {
-        ofLogVerbose("ofApp::onPointerDoubleTap") << evt.toString();
-    }
-}
-
-
-void ofApp::onPointerPressAndHold(ofx::PointerEventArgs& evt)
-{
-    if (evt.getDeviceType() == ofx::PointerEventArgs::TYPE_PEN)
-    {
-        ofLogVerbose("ofApp::onPointerPressAndHold") << evt.toString();
-    }
-}
-
