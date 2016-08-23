@@ -1,7 +1,7 @@
 // =============================================================================
 //
 // Copyright (c) 2014 Matt Ebb
-// Copyright (c) 2014 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2014-2016 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -30,13 +30,14 @@
 #import "ofx/Tablet.h"
 #import <iostream>
 
+
 void handlePoint(NSEvent *event);
 void handleProximity(NSEvent *event);
 
 
 bool connectImpl(int deviceId)
 {
-    unsigned long long tabletMask = 0;
+    uint64_t tabletMask = 0;
 
     tabletMask |= NSLeftMouseDownMask;
     tabletMask |= NSLeftMouseUpMask;
@@ -75,6 +76,9 @@ bool connectImpl(int deviceId)
                               data.absY = [NSEvent mouseLocation].y;
                               data.absZ = 0;
 
+                              data.x = [NSEvent mouseLocation].x;
+                              data.y = [NSEvent mouseLocation].y;
+
                               data.tiltX = [event tilt].x;
                               data.tiltY = [event tilt].y;
                               data.pressure = [event pressure];
@@ -90,15 +94,23 @@ bool connectImpl(int deviceId)
                               data.clickCount = [event clickCount];
 
                               data.vendorID = [event vendorID];
+
                               data.vendorPointerType = [event vendorPointingDeviceType];
 
                               ofx::Tablet::callback(data);
                           }
                               break;
+                          case NX_SUBTYPE_DEFAULT:
+                              // If the pen tablet sends events of this subtype,
+                              // it probably means the driver is not installed
+                              // and the OS is treating it as a mouse.
+                              break;
                           default:
                               break;
                       }
+
                       return event;
+
                   }];
 
     return true;

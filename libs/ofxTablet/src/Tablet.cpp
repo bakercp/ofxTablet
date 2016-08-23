@@ -1,7 +1,7 @@
 // =============================================================================
 //
 // Copyright (c) 2014 Matt Ebb
-// Copyright (c) 2014 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2014-2016 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -26,7 +26,6 @@
 
 #include "ofx/Tablet.h"
 #include "ofAppRunner.h"
-#include "ofx/PointerEventArgs.h"
 #include "ofx/PointerEvents.h"
 
 
@@ -42,10 +41,6 @@
 namespace ofx {
 
 
-// The default tablet is inited here.
-Tablet& tablet = Tablet::getTabletRef();
-
-
 Tablet::Tablet()
 {
     connectImpl(-1);
@@ -54,32 +49,49 @@ Tablet::Tablet()
 
 Tablet::~Tablet()
 {
+    disconnectImpl(-1);
 }
+
+
+void Tablet::setup()
+{
+    Tablet::instance();
+}
+
+
+Tablet& Tablet::instance()
+{
+    // TODO: deviceId is currently ignored.
+    static Tablet sh;
+    return sh;
+}
+
+
 
 void Tablet::callback(const TabletData& data)
 {
-    PointerEventArgs::EventType evtType = PointerEventArgs::MOVE;
+    std::string evtType = PointerEventArgs::POINTER_MOVE;
 
     switch (data.eventType)
     {
         case TabletData::DOWN:
-            evtType = PointerEventArgs::DOWN;
+            evtType = PointerEventArgs::POINTER_DOWN;
             break;
         case TabletData::UP:
-            evtType = PointerEventArgs::UP;
+            evtType = PointerEventArgs::POINTER_UP;
             break;
         case TabletData::MOVE:
-            evtType = PointerEventArgs::MOVE;
+            evtType = PointerEventArgs::POINTER_MOVE;
             break;
     };
 
 
-    ofVec3f windowPosition(data.absX - ofGetWindowPositionX(),
-                           (ofGetScreenHeight() - data.absY) - ofGetWindowPositionY(),
-                           data.absZ);
+    glm::vec3 windowPosition(data.absX - ofGetWindowPositionX(),
+                             (ofGetScreenHeight() - data.absY) - ofGetWindowPositionY(),
+                             data.absZ);
 
     Point point(windowPosition,
-                ofVec3f(data.absX, data.absY, data.absZ),
+                glm::vec3(data.absX, data.absY, data.absZ),
                 PointShape(),
                 data.pressure,
                 data.tangentialPressure,
@@ -88,14 +100,15 @@ void Tablet::callback(const TabletData& data)
                 data.tiltY);
 
 
-    unsigned long modifiers = 0;
+    uint64_t modifiers = 0;
 
     modifiers |= ofGetKeyPressed(OF_KEY_CONTROL) ? OF_KEY_CONTROL : 0;
     modifiers |= ofGetKeyPressed(OF_KEY_ALT)     ? OF_KEY_ALT     : 0;
     modifiers |= ofGetKeyPressed(OF_KEY_SHIFT)   ? OF_KEY_SHIFT   : 0;
     modifiers |= ofGetKeyPressed(OF_KEY_SUPER)   ? OF_KEY_SUPER   : 0;
 
-    unsigned long buttons = 0;
+
+    uint64_t buttons = 0;
 
     buttons |= ofGetMousePressed(OF_MOUSE_BUTTON_1) ? (1 << OF_MOUSE_BUTTON_1) : 0;
     buttons |= ofGetMousePressed(OF_MOUSE_BUTTON_2) ? (1 << OF_MOUSE_BUTTON_2) : 0;
@@ -111,35 +124,32 @@ void Tablet::callback(const TabletData& data)
                          data.pointerID,
                          PointerEventArgs::TYPE_PEN,
                          false,
+                         false,
                          data.button,
                          buttons,
                          modifiers,
                          data.clickCount,
-                         Poco::Timestamp());
+                         ofGetElapsedTimeMillis());
 
-    switch (evt.getEventType())
+    // Get the default instance.
+    PointerEvents& pointerEvents = PointerEvents::instance();
+
+    if (PointerEventArgs::POINTER_DOWN == evt.eventType())
     {
-        case PointerEventArgs::DOWN:
-            ofNotifyEvent(PointerEvents().onPointerDown, evt);
-            break;
-        case PointerEventArgs::UP:
-            ofNotifyEvent(PointerEvents().onPointerUp, evt);
-            break;
-        case PointerEventArgs::MOVE:
-            ofNotifyEvent(PointerEvents().onPointerMove, evt);
-            break;
-        case PointerEventArgs::CANCEL:
-            ofNotifyEvent(PointerEvents().onPointerCancel, evt);
-            break;
-    };
-}
-
-
-Tablet& Tablet::getTabletRef()
-{
-    // TODO: deviceId is currently ignored.
-    static Poco::SingletonHolder<Tablet> sh;
-    return *sh.get();
+        ofNotifyEvent(pointerEvents.onPointerDown, evt);
+    }
+    else if(PointerEventArgs::POINTER_UP == evt.eventType())
+    {
+        ofNotifyEvent(pointerEvents.onPointerUp, evt);
+    }
+    else if(PointerEventArgs::POINTER_MOVE == evt.eventType())
+    {
+        ofNotifyEvent(pointerEvents.onPointerMove, evt);
+    }
+    else if(PointerEventArgs::POINTER_CANCEL == evt.eventType())
+    {
+        ofNotifyEvent(pointerEvents.onPointerCancel, evt);
+    }
 }
 
 

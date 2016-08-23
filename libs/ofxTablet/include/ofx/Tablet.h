@@ -1,7 +1,7 @@
 // =============================================================================
 //
 // Copyright (c) 2014 Matt Ebb
-// Copyright (c) 2014 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2014-2016 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -27,8 +27,6 @@
 #pragma once
 
 
-#include <map>
-#include "Poco/SingletonHolder.h"
 #include "ofx/TabletData.h"
 
 
@@ -38,16 +36,20 @@ namespace ofx {
 class Tablet
 {
 public:
-    static Tablet& getTabletRef();
+    /// \brief A shortcut to create an instance.
+    static void setup();
+
+    /// \returns a reference to the singleton.
+    static Tablet& instance();
+
+    /// \breif A callback called by the platform-specific-implementation.
+    /// \param data The event data.
     static void callback(const TabletData& data);
 private:
-    // singleton
     Tablet();
-    virtual ~Tablet();
-    Tablet(const Tablet&);
-    Tablet& operator=(const Tablet&);
-
-    friend class Poco::SingletonHolder<Tablet>;
+    ~Tablet();
+    Tablet(const Tablet&) = delete;
+    Tablet& operator=(const Tablet&) = delete;
 
 };
 
